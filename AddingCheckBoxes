@@ -1,0 +1,41 @@
+Sub AddCheckBoxes()
+
+'Select the cells that you want to insert checkboxes into, then run the macro'
+
+Dim Rng As Range
+
+Dim SelectionRng As Range
+
+Dim WSHEET As Worksheet
+
+On Error Resume Next
+
+xTitleId = "Select Range"
+
+Set SelectionRng = Application.Selection
+
+Set SelectionRng = Application.InputBox("Range", xTitleId, SelectionRng.Address, Type:=8)
+
+Set WSHEET = Application.ActiveSheet
+
+Application.ScreenUpdating = False
+
+For Each Rng In SelectionRng
+
+    With WSHEET.CheckBoxes.Add(Rng.Left, Rng.Top, Rng.Width, Rng.Height)
+
+    .Characters.Text = Rng.Value
+
+    .LinkedCell = .TopLeftCell.Address
+
+    End With
+
+Next
+
+SelectionRng.ClearContents
+
+SelectionRng.Select
+
+Application.ScreenUpdating = True
+
+End Sub
