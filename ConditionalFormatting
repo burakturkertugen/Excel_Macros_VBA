@@ -1,0 +1,157 @@
+Sub ConditionalFormattingMinorChords()
+'Based on the condition, the cell is turned into red. If the content in the column of C is lower than 1, the cell becomes red.
+'If there is no content in the cell in the column of C, nothings happens.
+
+    Dim i As Integer
+    i = 3
+    Do While i < 120
+        
+        
+        'ScreenUpdating
+        Application.ScreenUpdating = False
+        
+        
+        If Range("C" & i) = "0" Then
+            Range("B" & i).Select
+            Selection.FormatConditions.Add Type:=xlExpression, Formula1:="=$C$" & i & "=0"
+            
+            Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+            With Selection.FormatConditions(1).Interior
+                .Pattern = xlPatternLinearGradient
+                .Gradient.Degree = 0
+                .Gradient.ColorStops.Clear
+            End With
+            With Selection.FormatConditions(1).Interior.Gradient.ColorStops.Add(0)
+                .ThemeColor = xlThemeColorDark1
+                .TintAndShade = 0
+            End With
+            With Selection.FormatConditions(1).Interior.Gradient.ColorStops.Add(1)
+                .Color = 255
+                .TintAndShade = 0
+            End With
+            Selection.FormatConditions(1).StopIfTrue = False
+
+            
+            
+            
+            
+            
+            
+            i = i + 1
+        ElseIf Range("C" & i) = "3" Then
+        
+            Range("B" & i).Select
+            Selection.FormatConditions.Add Type:=xlExpression, Formula1:="=$C$" & i & "=3"
+            
+            Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+            With Selection.FormatConditions(1).Interior
+                .Pattern = xlPatternLinearGradient
+                .Gradient.Degree = 0
+                .Gradient.ColorStops.Clear
+            End With
+            With Selection.FormatConditions(1).Interior.Gradient.ColorStops.Add(0)
+                .ThemeColor = xlThemeColorAccent6
+                .TintAndShade = 0.599993896298105
+            End With
+            With Selection.FormatConditions(1).Interior.Gradient.ColorStops.Add(1)
+                .Color = 5287936
+                .TintAndShade = 0
+            End With
+            Selection.FormatConditions(1).StopIfTrue = False
+                       
+            
+            i = i + 1
+        Else
+        
+            i = i + 1
+            ActiveCell.Offset(1, 0).Select
+          
+        
+        End If
+
+    'ScreenUpdating
+    Application.ScreenUpdating = False
+
+
+    Loop
+
+End Sub
+
+
+Sub ConditionalFormattingMajorChords()
+'Based on the condition, the cell is turned into red. If the content in the column of C is lower than 1, the cell becomes red.
+'If there is no content in the cell in the column of C, nothings happens.
+
+
+    Dim i As Integer
+    i = 3
+    Do While i < 120
+    
+        'ScreenUpdating
+        Application.ScreenUpdating = False
+        
+        If Range("P" & i) = "0" Then
+            Range("O" & i).Select
+            Selection.FormatConditions.Add Type:=xlExpression, Formula1:="=$P$" & i & "=0"
+            
+            Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+            With Selection.FormatConditions(1).Interior
+                .Pattern = xlPatternLinearGradient
+                .Gradient.Degree = 0
+                .Gradient.ColorStops.Clear
+            End With
+            With Selection.FormatConditions(1).Interior.Gradient.ColorStops.Add(0)
+                .ThemeColor = xlThemeColorDark1
+                .TintAndShade = 0
+            End With
+            With Selection.FormatConditions(1).Interior.Gradient.ColorStops.Add(1)
+                .Color = 255
+                .TintAndShade = 0
+            End With
+            Selection.FormatConditions(1).StopIfTrue = False
+    
+            
+            
+            
+            
+            
+            
+            i = i + 1
+        ElseIf Range("P" & i) = "3" Then
+        
+            Range("O" & i).Select
+            Selection.FormatConditions.Add Type:=xlExpression, Formula1:="=$P$" & i & "=3"
+            
+            Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+            With Selection.FormatConditions(1).Interior
+                .Pattern = xlPatternLinearGradient
+                .Gradient.Degree = 0
+                .Gradient.ColorStops.Clear
+            End With
+            With Selection.FormatConditions(1).Interior.Gradient.ColorStops.Add(0)
+                .ThemeColor = xlThemeColorAccent6
+                .TintAndShade = 0.599993896298105
+            End With
+            With Selection.FormatConditions(1).Interior.Gradient.ColorStops.Add(1)
+                .Color = 5287936
+                .TintAndShade = 0
+            End With
+            Selection.FormatConditions(1).StopIfTrue = False
+                       
+            
+            i = i + 1
+        Else
+        
+            i = i + 1
+            ActiveCell.Offset(1, 0).Select
+          
+        
+        End If
+
+    'ScreenUpdating
+    Application.ScreenUpdating = False
+    
+    
+    Loop
+
+End Sub
